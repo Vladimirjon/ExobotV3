@@ -44,8 +44,5 @@ public class MenuPanel extends JPanel {
         add(btnSexo);
         add(btnLocalidad);
         add(btnTest);
-
-        // add-copyright
-        add(new JLabel("\u00A9 2024 pat_mic"));
     }
 }

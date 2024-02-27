@@ -29,7 +29,7 @@ public abstract class IAStyle {
 
     public static final URL URL_MAIN  = IAStyle.class.getResource("/UserInterface/Resource/Img/sweetyfox ");
     public static final URL URL_LOGO  = IAStyle.class.getResource("/UserInterface/Resource/Img/Robot1.png");
-    public static final URL URL_SPLASH= IAStyle.class.getResource("/UserInterface/Resource/Img/metalico2.png");
+    public static final URL URL_SPLASH= IAStyle.class.getResource("/UserInterface/Resource/Img/finalb.png");
 
     public static final CompoundBorder createBorderRect(){
         return BorderFactory.createCompoundBorder(  new LineBorder(Color.lightGray),

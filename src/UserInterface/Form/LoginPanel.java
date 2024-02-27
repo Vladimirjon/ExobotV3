@@ -3,12 +3,12 @@ package UserInterface.Form;
 import java.awt.*;
 import javax.swing.*;
 
-import UserInterface.CustomerControl.PatLabel;
+import UserInterface.CustomerControl.MCLabel;
 import UserInterface.CustomerControl.MCLabelText;
 import UserInterface.CustomerControl.MCTextBox;
 
 public class LoginPanel extends JPanel {
-    private PatLabel        lblUsername,
+    private     MCLabel        lblUsername,
                             lblPassword;
     private MCTextBox      txtUsername;
     private JPasswordField  txpPassword;
@@ -36,8 +36,8 @@ public class LoginPanel extends JPanel {
     }
 
     private void initializeComponents() {
-        lblUsername = new PatLabel("Username:");
-        lblPassword = new PatLabel("Password:");
+        lblUsername = new MCLabel("Username:");
+        lblPassword = new MCLabel("Password:");
         txtUsername = new MCTextBox();
         txpPassword = new JPasswordField();
         btnLogin    = new JButton("Login");

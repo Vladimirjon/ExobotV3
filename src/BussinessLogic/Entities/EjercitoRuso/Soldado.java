@@ -1,4 +1,5 @@
-package EjercitoRuso;
+package BussinessLogic.Entities.EjercitoRuso;
+
 public class Soldado extends Humano implements IHumanoExtremidad{
     private Boolean habilidadBrazoIzquierdo;
     private Boolean habilidadBrazoDerecho;

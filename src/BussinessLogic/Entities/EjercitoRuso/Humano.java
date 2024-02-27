@@ -1,4 +1,4 @@
-package EjercitoRuso;
+package BussinessLogic.Entities.EjercitoRuso;
 
 import java.util.ArrayList;
 import java.util.Random;

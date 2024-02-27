@@ -1,5 +1,5 @@
-//CODIGO DE JOSE PALLARES
-package Exoesqueleto;
+package BussinessLogic.Entities.Exoesqueleto;
+
 
 public class FuentePoder {
     private int nivelEnergia;

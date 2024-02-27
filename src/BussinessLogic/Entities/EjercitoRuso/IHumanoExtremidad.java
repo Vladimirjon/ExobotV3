@@ -1,4 +1,5 @@
-package EjercitoRuso;
+package BussinessLogic.Entities.EjercitoRuso;
+
 
 public interface IHumanoExtremidad {
     public boolean brazoIzquierdo = true;

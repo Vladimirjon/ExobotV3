@@ -1,8 +1,9 @@
-package EjercitoRuso;
+package BussinessLogic.Entities.EjercitoRuso;
+
 
 import java.util.Random;
 
-import InteligenciaArtificial.IABOT;
+import BussinessLogic.Entities.InteligenciaArtificial.IABOT;
 
 public class Mecatronico extends Humano{
     private static final String CARACTERES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

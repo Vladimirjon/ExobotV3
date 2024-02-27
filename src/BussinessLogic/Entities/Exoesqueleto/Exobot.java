@@ -1,11 +1,12 @@
-package Exoesqueleto;
+package BussinessLogic.Entities.Exoesqueleto;
+
 
 import java.util.Random;
 
-import EjercitoRuso.ExpertoEspanol;
-import EjercitoRuso.ExpertoIngles;
-import EjercitoRuso.IHumanoExtremidad;
-import InteligenciaArtificial.IABOT;
+import BussinessLogic.Entities.EjercitoRuso.ExpertoEspanol;
+import BussinessLogic.Entities.EjercitoRuso.ExpertoIngles;
+import BussinessLogic.Entities.EjercitoRuso.IHumanoExtremidad;
+import BussinessLogic.Entities.InteligenciaArtificial.IABOT;
 
 public class Exobot extends IABOT implements IHumanoExtremidad,ITecnicoEspanol,ITecnicoIngles {
     private ExpertoEspanol expertoEspanol;

@@ -1,4 +1,4 @@
-package Exoesqueleto;
+package BussinessLogic.Entities.Exoesqueleto;
 
 public class ArmaBazuca extends ArmaIzquierda {
 

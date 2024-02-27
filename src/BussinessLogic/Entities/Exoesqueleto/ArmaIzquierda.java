@@ -1,4 +1,5 @@
-package Exoesqueleto;
+package BussinessLogic.Entities.Exoesqueleto;
+
 
 public abstract class ArmaIzquierda {
     private String Tipo;

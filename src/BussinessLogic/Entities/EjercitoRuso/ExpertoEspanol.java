@@ -1,4 +1,4 @@
-package EjercitoRuso;
+package BussinessLogic.Entities.EjercitoRuso;
 
 public class ExpertoEspanol implements ITecnicoEspanol{
     public void traducirEspanolTecnico(){

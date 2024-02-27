@@ -1,4 +1,5 @@
-package Exoesqueleto;
+package BussinessLogic.Entities.Exoesqueleto;
+
 
 public class BrazoDerecho implements IArmaDerecha {
     private IArmaDerecha arma;

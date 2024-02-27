@@ -1,4 +1,5 @@
-package Exoesqueleto;
+package BussinessLogic.Entities.Exoesqueleto;
+
 
 public class ArmaLanzafuegos implements IArmaDerecha {
     private String nombre;

@@ -1,4 +1,4 @@
-package InteligenciaArtificial;
+package BussinessLogic.Entities.InteligenciaArtificial;
 
 public class IABOT {
     private static IABOT instance;

@@ -1,11 +1,12 @@
+package BussinessLogic.Entities;
 import java.util.ArrayList;
 
-import EjercitoRuso.ExpertoEspanol;
-import EjercitoRuso.ExpertoIngles;
-import EjercitoRuso.Mecatronico;
-import EjercitoRuso.Soldado;
-import Exoesqueleto.Exobot;
-import InteligenciaArtificial.IABOT;
+import BussinessLogic.Entities.EjercitoRuso.ExpertoEspanol;
+import BussinessLogic.Entities.EjercitoRuso.ExpertoIngles;
+import BussinessLogic.Entities.EjercitoRuso.Mecatronico;
+import BussinessLogic.Entities.EjercitoRuso.Soldado;
+import BussinessLogic.Entities.Exoesqueleto.Exobot;
+import BussinessLogic.Entities.InteligenciaArtificial.IABOT;
 
 public class WhiteRun {
     public static void main(String[] args) throws Exception {

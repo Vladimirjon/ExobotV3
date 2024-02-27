@@ -1,4 +1,5 @@
-package Exoesqueleto;
+package BussinessLogic.Entities.Exoesqueleto;
+
 
 public class ArmaLaser implements IArmaDerecha {
     private int tiempo;

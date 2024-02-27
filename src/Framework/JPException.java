@@ -9,6 +9,6 @@ public class JPException extends Exception {
 
     @Override 
     public String getMessage(){
-        return "NO sea sapo..";
+        return "Muchachos estamos fallando en algo ...";
     }    
 }

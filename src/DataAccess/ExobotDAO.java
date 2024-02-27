@@ -4,8 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,12 +77,15 @@ public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO>{
 
     @Override
     public boolean create(ExobotDTO entity) throws Exception {
-        String query = " INSERT INTO DatoRiego (Humedad, IdTipoRiego) VALUES (?,?)";
+        String query = " INSERT INTO Exobot (Modelo_Serie, ArmaIzquierda, ArmaDerecha, AprenderEspanol, AprenderIngles) VALUES (?,?,?,?,?)";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, entity.getHumedadSuelo());
-            pstmt.setInt(2, entity.getIdTipoRiego());
+            pstmt.setString(1, entity.getSerie());
+            pstmt.setString(2, entity.getArmaBrazoIzquierdo());
+            pstmt.setString(3, entity.getArmaBrazoDerecho());
+            pstmt.setBoolean(4, entity.getProfeEspanol());
+            pstmt.setBoolean(5, entity.getProfeIngles());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -94,15 +95,17 @@ public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO>{
 
     @Override
     public boolean update(ExobotDTO entity) throws Exception {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String query = " UPDATE DatoRiego SET Humedad = ?, FechaModificacion = ? WHERE IdDato = ?";
+        // DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        // LocalDateTime now = LocalDateTime.now();
+        String query = " UPDATE Exobot SET Modelo_Serie = ?, ArmaIzquierda = ?, ArmaDerecha = ?, AprenderEspanol = ?, AprenderIngles  = ? WHERE IdExobot = ?";
         try {
             Connection conn = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, entity.getHumedadSuelo());
-            pstmt.setString(2, dtf.format(now).toString());
-            pstmt.setInt(3, entity.getIdDato());
+            pstmt.setString(1, entity.getSerie());
+            pstmt.setString(2, entity.getArmaBrazoIzquierdo());
+            pstmt.setString(3, entity.getArmaBrazoDerecho());
+            pstmt.setBoolean(4, entity.getProfeEspanol());
+            pstmt.setBoolean(5, entity.getProfeIngles());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -112,7 +115,7 @@ public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO>{
 
     @Override
     public boolean delete(Integer id) throws Exception {
-        String query = " Delete DatoRiego WHERE IdDato = ?";
+        String query = " Delete Exobot WHERE IdExobot = ?";
         try {
             Connection          conn = openConnection();
             PreparedStatement  pstmt = conn.prepareStatement(query);

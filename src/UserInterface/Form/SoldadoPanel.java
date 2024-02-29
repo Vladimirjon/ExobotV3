@@ -137,7 +137,7 @@ public class SoldadoPanel  extends JPanel implements ActionListener {
 
         JTable table = new JTable(data, header);
         table.setShowHorizontalLines(true);
-        table.setGridColor(Color.lightGray);
+        table.setGridColor(Color.BLACK);
         table.setRowSelectionAllowed(true);
         table.setColumnSelectionAllowed(false);
 
@@ -170,8 +170,8 @@ public class SoldadoPanel  extends JPanel implements ActionListener {
  * FormDesing : pat_mic
  ************************/ 
     private PatLabel 
-            lblTitulo   = new PatLabel("Soldado"),
-            lblIdSoldado   = new PatLabel(" Num.- :      "),
+            lblTitulo   = new PatLabel("SOLDADO "),
+            lblIdSoldado   = new PatLabel(" Num Soldado :      "),
             lblNombre   = new PatLabel(" Nombre : "),
             lblTotalReg = new PatLabel(" 0 de 0 ");
     private PatTextBox 
@@ -206,6 +206,7 @@ public class SoldadoPanel  extends JPanel implements ActionListener {
         txtIdSoldado.setBorderLine();
         txtNombre.setBorderLine();
 
+        pnlBtnPage.setBorder(getBorder());
         pnlBtnPage.add(btnPageIni);
         pnlBtnPage.add(btnPageAnt);
         pnlBtnPage.add(new PatLabel(" Page:( "));

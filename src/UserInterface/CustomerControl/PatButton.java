@@ -23,10 +23,10 @@ public class PatButton  extends JButton implements MouseListener {
 
     public void customizeComponent(String text, String iconPath){ 
         
-        setSize(20, 70);
+        setSize(16, 60);
         addMouseListener(this);
         customizeComponent(text);
-        setBounds(50, 30, 90, 20); 
+        setBounds(50, 30, 80, 18); 
         
         setIcon(new ImageIcon(iconPath));
         setFont(IAStyle.FONT);
@@ -64,7 +64,7 @@ public class PatButton  extends JButton implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-        setForeground(Color.GRAY);
+        setForeground(Color.BLACK);
         setCursor(IAStyle.CURSOR_DEFAULT);
     }
 }

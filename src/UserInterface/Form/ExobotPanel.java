@@ -139,7 +139,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
 
     private void showTable() throws Exception {
         String[] header = {"IdExobot", "Modelo","ArmaIzq","ArmaDer","Espanol","Ingles"};
-        Object[][] data = new Object[exobotBL.getAll().size()][5];
+        Object[][] data = new Object[exobotBL.getAll().size()][6];
         int index = 0;
         for (ExobotDTO s : exobotBL.getAll()) {
             data[index][0] = s.getIdExobot();
@@ -154,7 +154,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
 
         JTable table = new JTable(data, header);
         table.setShowHorizontalLines(true);
-        table.setGridColor(Color.black);
+        table.setGridColor(Color.BLACK);
         table.setRowSelectionAllowed(true);
         table.setColumnSelectionAllowed(false);
 
@@ -187,10 +187,14 @@ public class ExobotPanel  extends JPanel implements ActionListener {
  * FormDesing : pat_mic
  ************************/ 
     private PatLabel 
-            lblTitulo   = new PatLabel(" EXOBOT "),
-            lblIdSoldado   = new PatLabel(" Num. Exobot :      "),
-            lblNombre   = new PatLabel(" Modelo "),
-            lblTotalReg = new PatLabel(" 0 de 0 ");
+        lblTitulo  = new PatLabel(" EXOBOT "          ),
+        lblIdExobot  = new PatLabel(" Num Exobot :      " ),
+        lblModelo  = new PatLabel(" Modelo :      " ),
+        lblArmaIzq  = new PatLabel(" ArmaIzquieda: " ),
+        lblArmaDer  = new PatLabel(" ArmaDerecha: " ),
+        lblEspanol  = new PatLabel(" Ingles: " ),
+        lblIngles  = new PatLabel(" Espanol: " ),
+        lblTotalReg= new PatLabel("  0 de 0  "    );
     private PatTextBox 
             txtIdExobot  = new PatTextBox (),
             txtModelo  = new PatTextBox (),
@@ -247,7 +251,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
         pnlBtnCRUD.add(btnEliminar);
         pnlBtnCRUD.setBorder(IAStyle.createBorderRect());
 
-        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.insets = new Insets(3, 3, 3, 3);
 
         gbc.gridy = 0;
         gbc.gridx = 0;
@@ -265,8 +269,8 @@ public class ExobotPanel  extends JPanel implements ActionListener {
         gbc.gridy = 2;
         gbc.gridx = 0;
         gbc.gridwidth = 3;
-        gbc.ipady = 150;
-        gbc.ipadx = 450;
+        gbc.ipady = 200;
+        gbc.ipadx = 500;
         pnlTabla.add(new Label("Loading data..."));
         add(pnlTabla, gbc);
 
@@ -275,8 +279,8 @@ public class ExobotPanel  extends JPanel implements ActionListener {
 
         gbc.gridy = 3;
         gbc.gridx = 0;
-        gbc.gridwidth = 3;
-        gbc.insets = new Insets(50, 0, 0, 0);  // Ajusta el valor superior a 50
+        gbc.gridwidth = 2;
+        gbc.insets = new Insets(40, 0, 0, 0);  // Ajusta el valor superior a 50
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(Box.createRigidArea(new Dimension(0, 0)), gbc);
 
@@ -292,7 +296,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
 
         gbc.gridy = 5;
         gbc.gridx = 0;
-        add(lblIdSoldado, gbc);
+        add(lblIdExobot, gbc);
         gbc.gridy = 5;
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -301,12 +305,50 @@ public class ExobotPanel  extends JPanel implements ActionListener {
 
         gbc.gridy = 6;
         gbc.gridx = 0;
-        add(lblNombre, gbc);
+        add(lblModelo, gbc);
         gbc.gridy = 6;
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
         add(txtModelo, gbc);
+
+        gbc.gridy =7;
+        gbc.gridx =0;
+        add(lblArmaIzq,gbc);
+        gbc.gridy =7;
+        gbc.gridx=1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        add(txtArmaIzq,gbc);
+
+        gbc.gridy =8;
+        gbc.gridx =0;
+        add(lblArmaDer,gbc);
+        gbc.gridy =8;
+        gbc.gridx=1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        add(txtArmaDer,gbc);
+
+        gbc.gridy =9;
+        gbc.gridx =0;
+        add(lblEspanol,gbc);
+        gbc.gridy =9;
+        gbc.gridx=1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        add(txtEspanol,gbc);
+
+        gbc.gridy =10;
+        gbc.gridx =0;
+        add(lblIngles,gbc);
+        gbc.gridy =10;
+        gbc.gridx=1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridwidth = GridBagConstraints.REMAINDER;
+        add(txtIngles,gbc);
+
+        
 
         // gbc.gridy = 7;
         // gbc.gridx = 1;
@@ -314,10 +356,10 @@ public class ExobotPanel  extends JPanel implements ActionListener {
         // gbc.fill = GridBagConstraints.HORIZONTAL;
         // add(pnlBtnRow, gbc);
 
-        gbc.gridy = 7;
+        gbc.gridy = 11;
         gbc.gridx = 0;
-        gbc.gridwidth = 3;
-        gbc.insets = new Insets(30, 0, 0, 0);
+        gbc.gridwidth = 2;
+        gbc.insets = new Insets(20, 0, 0, 0);
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(pnlBtnCRUD, gbc);
     }

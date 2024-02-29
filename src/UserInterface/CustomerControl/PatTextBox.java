@@ -19,7 +19,7 @@ public class PatTextBox extends JTextField {
         setFont(IAStyle.FONT);  
         setForeground(IAStyle.COLOR_FONT_LIGHT);  
         setCaretColor(IAStyle.COLOR_CURSOR);    // Color del cursor
-        setMargin(new Insets(5, 5, 5, 5));      // Ajusta los márgenes
+        setMargin(new Insets(4, 4, 4, 4));      // Ajusta los márgenes
         setOpaque(false);                       // Fondo transparente
         //setUI(new BasicTextFieldUI());  // Para deshabilitar el subrayado por defecto
     }

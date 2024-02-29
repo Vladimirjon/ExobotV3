@@ -108,7 +108,7 @@ public class BasePnlExobot extends JPanel implements ActionListener{
     } 
     private void showTable() throws Exception {
         String[] header = {"IdExobot", "Modelo","ArmaIzq","ArmaDer","Espanol","Ingles"};
-        Object[][] data = new Object[exobotBL.getAll().size()][5];  
+        Object[][] data = new Object[exobotBL.getAll().size()][6];  
         int index = 0;
         for(ExobotDTO s : exobotBL.getAll()) {
             data[index][0] = s.getIdExobot();
@@ -123,7 +123,7 @@ public class BasePnlExobot extends JPanel implements ActionListener{
         
         JTable table  = new JTable(data, header);
         table.setShowHorizontalLines(true);
-        table.setGridColor(Color.black);
+        table.setGridColor(Color.BLACK);
         table.setRowSelectionAllowed(true);
         table.setColumnSelectionAllowed(false);
 
@@ -169,13 +169,13 @@ public class BasePnlExobot extends JPanel implements ActionListener{
         if(e.getSource() == btnFin)
             idExobot = idMaxExobot;
 
-        // try {
-        //     if(e.getSource() == btnGuardar)
-        //         btnGuardarClick(e);
-        //     exobot    = exobotBL.getSoldadoById(idExobot);  
-        //     showData(); 
-        // } catch (Exception ex) {}
-        // System.out.println(e.getActionCommand());
+        try {
+            if(e.getSource() == btnGuardar)
+                btnGuardarClick(e);
+            exobot    = exobotBL.getByIdExobot(idExobot);  
+            showData(); 
+        } catch (Exception ex) {}
+        System.out.println(e.getActionCommand());
     }
 
 /************************
@@ -183,8 +183,12 @@ public class BasePnlExobot extends JPanel implements ActionListener{
  ************************/ 
     private PatLabel  
             lblTitulo  = new PatLabel(" EXOBOT "          ),
-            lblIdExibot  = new PatLabel("Num.- :      " ),
-            lblModelo  = new PatLabel("Modelo: " ),
+            lblIdExobot  = new PatLabel(" Num Exobot :      " ),
+            lblModelo  = new PatLabel(" Modelo :      " ),
+            lblArmaIzq  = new PatLabel(" Arma Izquieda: " ),
+            lblArmaDer  = new PatLabel(" Arma Derecha: " ),
+            lblEspanol  = new PatLabel(" Aprender Ingles: " ),
+            lblIngles  = new PatLabel(" Aprender Espanol: " ),
             lblTotalReg= new PatLabel("  0 de 0  "    );
     private PatTextBox  
             txtIdExobot  = new PatTextBox (),
@@ -209,7 +213,7 @@ public class BasePnlExobot extends JPanel implements ActionListener{
             pnlBtnCRUD = new JPanel(new FlowLayout()),
             pnlBtnPage = new JPanel(new FlowLayout());
     private Border  
-            line       = new LineBorder(Color.black),
+            line       = new LineBorder(Color.BLACK),
             margin     = new EmptyBorder(5, 5, 5, 5),
             border     = new CompoundBorder(line, margin);
     
@@ -222,6 +226,7 @@ public class BasePnlExobot extends JPanel implements ActionListener{
         txtIdExobot.setEnabled(false);
         
         // Panel.Paginacion.Tabla
+        pnlBtnPage.setBorder(border);       
         pnlBtnPage.add(btnIni);       
         pnlBtnPage.add(btnAnt);  
         pnlBtnPage.add(new PatLabel(" Page: [ "));      
@@ -231,6 +236,7 @@ public class BasePnlExobot extends JPanel implements ActionListener{
         pnlBtnPage.add(btnFin);
 
         // Panel.CRUD
+        pnlBtnCRUD.setBorder(border);
         pnlBtnCRUD.add(btnNuevo);
         pnlBtnCRUD.add(btnGuardar);
         pnlBtnCRUD.add(btnCancelar);
@@ -268,16 +274,30 @@ public class BasePnlExobot extends JPanel implements ActionListener{
         gbc.gridwidth=1;    
         add(new JLabel("■ Sección de registro: "), gbc);  
 
-        gbc.gridy = 5;       gbc.gridx=0;     add(lblIdExibot,  gbc);   
+        gbc.gridy = 5;       gbc.gridx=0;     add(lblIdExobot,  gbc);   
         gbc.gridy = 5;       gbc.gridx=1;     add(txtIdExobot,  gbc);   
 
         gbc.gridy = 6;       gbc.gridx=0;     add(lblModelo, gbc);        
         gbc.gridy = 6;       gbc.gridx=1;     add(txtModelo, gbc);
-        gbc.gridy = 6;       gbc.gridx=2;     add(new JLabel("*"), gbc);  
+        gbc.gridy = 6;       gbc.gridx=2;     add(new JLabel("*"), gbc); 
+        
+        gbc.gridy = 7;       gbc.gridx=0;    add(lblArmaIzq,gbc);
+        gbc.gridy = 7;       gbc.gridx=0;    add(txtArmaIzq,gbc);
 
-        gbc.gridy = 7;       gbc.gridx=0;
-        gbc.gridwidth=3;
-        gbc.insets    = new Insets(30,0,0,0); 
+        gbc.gridy = 8;       gbc.gridx=0;    add(lblArmaDer,gbc);
+        gbc.gridy = 8;       gbc.gridx=0;    add(txtArmaDer,gbc);
+
+        gbc.gridy = 9;       gbc.gridx=0;    add(lblEspanol,gbc);
+        gbc.gridy = 9;       gbc.gridx=0;    add(txtEspanol,gbc);
+
+        gbc.gridy = 10;       gbc.gridx=0;    add(lblIngles,gbc);
+        gbc.gridy = 10;       gbc.gridx=0;    add(txtIngles,gbc);
+
+        
+
+        gbc.gridy = 11;       gbc.gridx=0;
+        gbc.gridwidth=2;
+        gbc.insets    = new Insets(20,0,0,0); 
         gbc.fill=GridBagConstraints.HORIZONTAL;
         add(pnlBtnCRUD, gbc);
         

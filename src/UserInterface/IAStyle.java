@@ -16,9 +16,9 @@ public abstract class IAStyle {
     public static final Color COLOR_FONT_LIGHT = new Color(190, 30, 50);
     public static final Color COLOR_CURSOR = Color.black;
     public static final Color COLOR_BORDER = Color.black;
-    public static final Font  FONT         = new Font("Arial", Font.PLAIN, 16);
-    public static final Font  FONT_BOLD    = new Font("Arial", Font.BOLD | Font.PLAIN, 16);
-    public static final Font  FONT_SMALL   = new Font("Arial", Font.PLAIN| Font.PLAIN, 12);
+    public static final Font  FONT         = new Font("Arial", Font.PLAIN, 12);
+    public static final Font  FONT_BOLD    = new Font("Arial", Font.BOLD | Font.PLAIN, 12);
+    public static final Font  FONT_SMALL   = new Font("Arial", Font.PLAIN| Font.PLAIN, 10);
 
     public static final int ALIGNMENT_LEFT  = SwingConstants.LEFT;
     public static final int ALIGNMENT_RIGHT = SwingConstants.RIGHT;
@@ -33,7 +33,7 @@ public abstract class IAStyle {
 
     public static final CompoundBorder createBorderRect(){
         return BorderFactory.createCompoundBorder(  new LineBorder(Color.black),
-                                                    new EmptyBorder(5, 5, 5, 5));
+                                                    new EmptyBorder(3, 3, 3, 3));
     }
 
     public static final void showMsg(String msg){

@@ -4,9 +4,9 @@ package UserInterface.Form;
 import javax.swing.*;
 
 import BusinessLogic.ExobotBL;
-import BusinessLogic.SoldadoBL;
+import BusinessLogic.ExobotBL;
 import DataAccess.DTO.ExobotDTO;
-import DataAccess.DTO.SoldadoDTO;
+import DataAccess.DTO.ExobotDTO;
 import UserInterface.IAStyle;
 import UserInterface.CustomerControl.PatButton;
 import UserInterface.CustomerControl.PatLabel;
@@ -19,9 +19,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class ExobotPanel  extends JPanel implements ActionListener {
-    private Integer idSoldado = 0, idMaxSoldado=0;
-    private SoldadoBL soldadoBL = null;
-    private SoldadoDTO soldado = null;
+    private Integer idExobot = 0, idMaxExobot=0;
+    private ExobotBL exobotBL = null;
+    private ExobotDTO exobot = null;
 
     public ExobotPanel() {
         try {
@@ -46,36 +46,46 @@ public class ExobotPanel  extends JPanel implements ActionListener {
     }
 
     private void loadRow() throws Exception {
-        idSoldado      = 2;
-        soldadoBL      = new SoldadoBL();
-        soldado        = soldadoBL.getByIdSoldado(idSoldado);
+        idExobot      = 2;
+        exobotBL      = new ExobotBL();
+        exobot        = exobotBL.getByIdExobot(idExobot);
         
     }
 
     private void showRow() {
-        boolean soldadoNull = (soldado == null);
-        txtIdSoldado.setText((soldadoNull) ? " " : soldado.getIdSoldado().toString());
-        txtNombre.setText((soldadoNull) ? " " : soldado.getNombre());
-        lblTotalReg.setText(idSoldado.toString() + " de " + idMaxSoldado.toString());
+        boolean exobotNull = (exobot == null);
+        txtIdExobot.setText((exobotNull) ? " " : exobot.getIdExobot().toString());            
+        txtModelo.setText((exobotNull) ? " " : exobot.getModelo());
+        txtArmaIzq.setText((exobotNull) ? " " : exobot.getArmaIzquierda());
+        txtArmaDer.setText((exobotNull) ? " " : exobot.getArmaDerecha());
+        txtEspanol.setText((exobotNull) ? " " : exobot.getAprenderEspanol().toString());
+        txtIngles.setText((exobotNull) ? " " : exobot.getAprenderIngles().toString());
+
+        lblTotalReg.setText(idExobot.toString() + " de " + idMaxExobot.toString());
     }
 
     private void btnNuevoClick() {
-        soldado = null;
+        exobot = null;
         showRow();
     } 
     
     private void btnGuardarClick() {
-        boolean soldadoNull = (soldado == null);
+        boolean exobotNull = (exobot == null);
         // String buttonText = ((JButton) e.getSource()).getText();
         try {
-            if (IAStyle.showConfirmYesNo("¿Seguro que desea " + ((soldadoNull) ? "AGREGAR ?" : "ACTUALIZAR ?"))){
+            if (IAStyle.showConfirmYesNo("¿Seguro que desea " + ((exobotNull) ? "AGREGAR ?" : "ACTUALIZAR ?"))){
             
-                if (soldadoNull)
-                    soldado = new SoldadoDTO(0,txtNombre.getText());
+                if (exobotNull)
+                    exobot = new ExobotDTO(0,txtModelo.getText(),txtArmaIzq.getText(),txtArmaDer.getText(),true,true);
                 else
-                    soldado.setNombre(txtNombre.getText());
+                    exobot.setModelo(txtModelo.getText());
+                    exobot.setArmaIzquierda(txtArmaIzq.getText());
+                    exobot.setArmaDerecha(txtArmaDer.getText());
+                    exobot.setAprenderEspanol(true);
+                    exobot.setAprenderIngles(true);
+
     
-                if(!((soldadoNull) ? soldadoBL.create(soldado) : soldadoBL.update(soldado)))
+                if(!((exobotNull) ? exobotBL.create(exobot) : exobotBL.update(exobot)))
                     IAStyle.showMsgError("Error al guardar...!");
     
                 loadRow();
@@ -91,7 +101,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
         try {
             if (IAStyle.showConfirmYesNo("Seguro que desea Eliminar?")) {
 
-                if (!soldadoBL.delete(soldado.getIdSoldado()))
+                if (!exobotBL.delete(exobot.getIdExobot()))
                     throw new Exception("Error al eliminar...!");
     
                 loadRow();
@@ -105,7 +115,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
 
     private void btnCancelarClick() {
         try {
-            if(soldado == null)
+            if(exobot == null)
                 loadRow();
             showRow();
         } catch (Exception e) {}
@@ -114,33 +124,37 @@ public class ExobotPanel  extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnRowIni)
-            idSoldado = 1;
-        if (e.getSource() == btnRowAnt && (idSoldado > 1))
-            idSoldado--;
-        if (e.getSource() == btnRowSig && (idSoldado < idMaxSoldado))
-            idSoldado++;
+            idExobot = 1;
+        if (e.getSource() == btnRowAnt && (idExobot > 1))
+            idExobot--;
+        if (e.getSource() == btnRowSig && (idExobot < idMaxExobot))
+            idExobot++;
         if (e.getSource() == btnRowFin)
-            idSoldado = idMaxSoldado;
+            idExobot = idMaxExobot;
         try {
-            soldado    = soldadoBL.getByIdSoldado(idSoldado);  
+            exobot    = exobotBL.getByIdExobot(idExobot);  
             showRow(); 
         } catch (Exception ex) {}
     }
 
     private void showTable() throws Exception {
-        String[] header = {"Id", "Nombre"};
-        Object[][] data = new Object[soldadoBL.getAll().size()][3];
+        String[] header = {"IdExobot", "Modelo","ArmaIzq","ArmaDer","Espanol","Ingles"};
+        Object[][] data = new Object[exobotBL.getAll().size()][5];
         int index = 0;
-        for (SoldadoDTO s : soldadoBL.getAll()) {
-            data[index][0] = s.getIdSoldado();
-            data[index][1] = s.getNombre();
+        for (ExobotDTO s : exobotBL.getAll()) {
+            data[index][0] = s.getIdExobot();
+            data[index][1] = s.getModelo();
+            data[index][2] = s.getArmaIzquierda();
+            data[index][3] = s.getArmaDerecha();
+            data[index][4] = s.getAprenderEspanol();
+            data[index][5] = s.getAprenderIngles();
             
             index++;
         }
 
         JTable table = new JTable(data, header);
         table.setShowHorizontalLines(true);
-        table.setGridColor(Color.lightGray);
+        table.setGridColor(Color.black);
         table.setRowSelectionAllowed(true);
         table.setColumnSelectionAllowed(false);
 
@@ -156,14 +170,14 @@ public class ExobotPanel  extends JPanel implements ActionListener {
                 int row = table.rowAtPoint(e.getPoint());
                 int col = table.columnAtPoint(e.getPoint());
                 if (row >= 0 && col >= 0) {
-                    String strIdSoldado = table.getModel().getValueAt(row, 0).toString();
-                    idSoldado = Integer.parseInt(strIdSoldado);
+                    String strIdExobot = table.getModel().getValueAt(row, 0).toString();
+                    idExobot = Integer.parseInt(strIdExobot);
                     try {
-                        soldado = soldadoBL.getByIdSoldado(idSoldado);
+                        exobot = exobotBL.getByIdExobot(idExobot);
                         showRow();
                     } catch (Exception ignored) {
                     }
-                    System.out.println("Tabla.Selected: " + strIdSoldado);
+                    System.out.println("Tabla.Selected: " + strIdExobot);
                 }
             }
         });
@@ -173,13 +187,17 @@ public class ExobotPanel  extends JPanel implements ActionListener {
  * FormDesing : pat_mic
  ************************/ 
     private PatLabel 
-            lblTitulo   = new PatLabel("Soldado"),
-            lblIdSoldado   = new PatLabel(" Codigo:      "),
-            lblNombre   = new PatLabel("*Descripción: "),
+            lblTitulo   = new PatLabel(" EXOBOT "),
+            lblIdSoldado   = new PatLabel(" Num. Exobot :      "),
+            lblNombre   = new PatLabel(" Modelo "),
             lblTotalReg = new PatLabel(" 0 de 0 ");
     private PatTextBox 
-            txtIdSoldado   = new PatTextBox(),
-            txtNombre   = new PatTextBox();
+            txtIdExobot  = new PatTextBox (),
+            txtModelo  = new PatTextBox (),
+            txtArmaIzq = new PatTextBox (),
+            txtArmaDer = new PatTextBox (),
+            txtEspanol = new PatTextBox (),
+            txtIngles = new PatTextBox ();
     private PatButton 
             btnPageIni  = new PatButton(" |< "),
             btnPageAnt  = new PatButton(" << "),
@@ -205,9 +223,9 @@ public class ExobotPanel  extends JPanel implements ActionListener {
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         
-        txtIdSoldado.setEnabled(false);
-        txtIdSoldado.setBorderLine();
-        txtNombre.setBorderLine();
+        txtIdExobot.setEnabled(false);
+        txtIdExobot.setBorderLine();
+        txtModelo.setBorderLine();
 
         pnlBtnPage.add(btnPageIni);
         pnlBtnPage.add(btnPageAnt);
@@ -279,7 +297,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
-        add(txtIdSoldado, gbc);
+        add(txtIdExobot, gbc);
 
         gbc.gridy = 6;
         gbc.gridx = 0;
@@ -288,7 +306,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
         gbc.gridx = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = GridBagConstraints.REMAINDER; // Indica que este componente ocupa toda la fila
-        add(txtNombre, gbc);
+        add(txtModelo, gbc);
 
         // gbc.gridy = 7;
         // gbc.gridx = 1;

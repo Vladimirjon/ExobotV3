@@ -126,7 +126,7 @@ public class SoldadoPanel  extends JPanel implements ActionListener {
 
     private void showTable() throws Exception {
         String[] header = {"Id", "Nombre"};
-        Object[][] data = new Object[soldadoBL.getAll().size()][3];
+        Object[][] data = new Object[soldadoBL.getAll().size()][2];
         int index = 0;
         for (SoldadoDTO s : soldadoBL.getAll()) {
             data[index][0] = s.getIdSoldado();
@@ -171,8 +171,8 @@ public class SoldadoPanel  extends JPanel implements ActionListener {
  ************************/ 
     private PatLabel 
             lblTitulo   = new PatLabel("Soldado"),
-            lblIdSoldado   = new PatLabel(" Codigo:      "),
-            lblNombre   = new PatLabel("*Descripción: "),
+            lblIdSoldado   = new PatLabel(" Num.- :      "),
+            lblNombre   = new PatLabel(" Nombre : "),
             lblTotalReg = new PatLabel(" 0 de 0 ");
     private PatTextBox 
             txtIdSoldado   = new PatTextBox(),

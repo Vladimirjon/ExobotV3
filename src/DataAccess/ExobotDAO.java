@@ -10,14 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 import DataAccess.DTO.ExobotDTO;
 import Framework.PatException;
-import Framework.PatException;  
   
 public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO> {  
   
@@ -29,7 +24,7 @@ public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO> {
   
     @Override  
     public ExobotDTO readBy(Integer id) throws Exception {  
-        ExobotDTO  soldado = null; 
+        ExobotDTO  exobot = null; 
         try {
             
             Connection conn = openConnection();         // conectar a DB     
@@ -38,9 +33,10 @@ public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO> {
             
             
             if (rs.next()) {  
-                soldado = new ExobotDTO(rs.getInt("IdExobot"),rs.getString("Nombre"));  
+                exobot = new ExobotDTO(rs.getInt("IdExobot"),rs.getString("Modelo"),rs.getString("Arma Izquieda")
+                ,rs.getString("Arma Derecha"),rs.getBoolean("Aprender Espanol"),rs.getBoolean("Aprender Ingles"));  
             } else {  
-                soldado = null;  
+                exobot = null;  
             }
         }
         catch (SQLException e) {
@@ -50,26 +46,27 @@ public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO> {
             // TODO: handle exception
             System.out.println(e.getMessage());
         }
-        return soldado;
+        return exobot;
     }  
   
     @Override  
     public List<ExobotDTO> readAll() throws Exception {
         Connection connection = openConnection();  
-        List<ExobotDTO> soldiers = new ArrayList<>();  
+        List<ExobotDTO> exobots = new ArrayList<>();  
         Statement statement = connection.createStatement();  
         ResultSet resultSet = statement.executeQuery("SELECT * FROM Exobot");  
         while(resultSet.next()) {  
-            soldiers.add(new ExobotDTO(resultSet.getInt("IdExobot"),resultSet.getString("Nombre")));  
+            exobots.add(new ExobotDTO(resultSet.getInt("IdExobot"),resultSet.getString("Modelo"),resultSet.getString("Arma Izquieda")
+            ,resultSet.getString("Arma Derecha"),resultSet.getBoolean("Aprender Espanol"),resultSet.getBoolean("Aprender Ingles")));  
         }  
-        return soldiers;  
+        return exobots;  
     }  
   
     @Override  
     public boolean create(ExobotDTO entity) throws Exception {
         Connection connection = openConnection();  
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO Exobot (Nombre) VALUES (?)");  
-        statement.setString(1, entity.getNombre());  
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO Exobot (Modelo) VALUES (?)");  
+        statement.setString(1, entity.getModelo());  
         return statement.executeUpdate() > 0; 
          
     }  
@@ -77,9 +74,13 @@ public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO> {
     @Override  
     public boolean update(ExobotDTO entity) throws Exception {
         Connection connection = openConnection();  
-        PreparedStatement statement = connection.prepareStatement("UPDATE Exobot SET Nombre = ? WHERE IdExobot = ?");  
-        statement.setString(1, entity.getNombre());  
-        statement.setInt(2, entity.getIdExobot());  
+        PreparedStatement statement = connection.prepareStatement("UPDATE Exobot SET Modelo = ? WHERE IdExobot = ?");  
+        statement.setInt(1, entity.getIdExobot());  
+        statement.setString(2, entity.getModelo());  
+        statement.setString(3, entity.getArmaIzquierda());  
+        statement.setString(4, entity.getArmaDerecha());  
+        statement.setBoolean(5, true);
+        statement.setBoolean(6, true);
         return statement.executeUpdate() > 0;  
     }  
   

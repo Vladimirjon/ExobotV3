@@ -115,7 +115,7 @@ public class BasePnlSoldado extends JPanel implements ActionListener{
         
         JTable table  = new JTable(data, header);
         table.setShowHorizontalLines(true);
-        table.setGridColor(Color.lightGray);
+        table.setGridColor(Color.black);
         table.setRowSelectionAllowed(true);
         table.setColumnSelectionAllowed(false);
 
@@ -175,8 +175,8 @@ public class BasePnlSoldado extends JPanel implements ActionListener{
  ************************/ 
     private PatLabel  
             lblTitulo  = new PatLabel("SOLDADO"          ),
-            lblIdSoldado  = new PatLabel("Codigo:      " ),
-            lblNombre  = new PatLabel("Descripción: " ),
+            lblIdSoldado  = new PatLabel("Num.- :      " ),
+            lblNombre  = new PatLabel("Nombre : " ),
             lblTotalReg= new PatLabel("  0 de 0  "    );
     private PatTextBox  
             txtIdSoldado  = new PatTextBox (),
@@ -196,7 +196,7 @@ public class BasePnlSoldado extends JPanel implements ActionListener{
             pnlBtnCRUD = new JPanel(new FlowLayout()),
             pnlBtnPage = new JPanel(new FlowLayout());
     private Border  
-            line       = new LineBorder(Color.lightGray),
+            line       = new LineBorder(Color.black),
             margin     = new EmptyBorder(5, 5, 5, 5),
             border     = new CompoundBorder(line, margin);
     

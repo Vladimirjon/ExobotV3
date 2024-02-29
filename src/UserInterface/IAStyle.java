@@ -13,12 +13,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 public abstract class IAStyle {
     public static final Color COLOR_FONT = new Color(200, 100, 50); //(218, 8, 40)
-    public static final Color COLOR_FONT_LIGHT = new Color(100, 100, 100);
+    public static final Color COLOR_FONT_LIGHT = new Color(190, 30, 50);
     public static final Color COLOR_CURSOR = Color.black;
-    public static final Color COLOR_BORDER = Color.lightGray;
-    public static final Font  FONT         = new Font("JetBrains Mono", Font.PLAIN, 14);
-    public static final Font  FONT_BOLD    = new Font("JetBrains Mono", Font.BOLD | Font.PLAIN, 14);
-    public static final Font  FONT_SMALL   = new Font("JetBrains Mono", Font.PLAIN| Font.PLAIN, 10);
+    public static final Color COLOR_BORDER = Color.black;
+    public static final Font  FONT         = new Font("Arial", Font.PLAIN, 16);
+    public static final Font  FONT_BOLD    = new Font("Arial", Font.BOLD | Font.PLAIN, 16);
+    public static final Font  FONT_SMALL   = new Font("Arial", Font.PLAIN| Font.PLAIN, 12);
 
     public static final int ALIGNMENT_LEFT  = SwingConstants.LEFT;
     public static final int ALIGNMENT_RIGHT = SwingConstants.RIGHT;
@@ -29,10 +29,10 @@ public abstract class IAStyle {
 
     public static final URL URL_MAIN  = IAStyle.class.getResource("/UserInterface/Resource/Img/IABot.png");
     public static final URL URL_LOGO  = IAStyle.class.getResource("/UserInterface/Resource/Img/Logo.png");
-    public static final URL URL_SPLASH= IAStyle.class.getResource("/UserInterface/Resource/Img/Splah.png");
+    public static final URL URL_SPLASH= IAStyle.class.getResource("/UserInterface/Resource/Img/Buho.png");
 
     public static final CompoundBorder createBorderRect(){
-        return BorderFactory.createCompoundBorder(  new LineBorder(Color.lightGray),
+        return BorderFactory.createCompoundBorder(  new LineBorder(Color.black),
                                                     new EmptyBorder(5, 5, 5, 5));
     }
 

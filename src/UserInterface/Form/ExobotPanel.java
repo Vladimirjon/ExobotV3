@@ -1,11 +1,12 @@
 package UserInterface.Form;
 
-package UserInterface.Form;
 
 import javax.swing.*;
 
 import BusinessLogic.ExobotBL;
+import BusinessLogic.SoldadoBL;
 import DataAccess.DTO.ExobotDTO;
+import DataAccess.DTO.SoldadoDTO;
 import UserInterface.IAStyle;
 import UserInterface.CustomerControl.PatButton;
 import UserInterface.CustomerControl.PatLabel;
@@ -22,7 +23,7 @@ public class ExobotPanel  extends JPanel implements ActionListener {
     private SoldadoBL soldadoBL = null;
     private SoldadoDTO soldado = null;
 
-    public SoldadoPanel() {
+    public ExobotPanel() {
         try {
             
             customizeComponent();

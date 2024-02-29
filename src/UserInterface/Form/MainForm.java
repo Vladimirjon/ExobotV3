@@ -17,8 +17,8 @@ public class MainForm extends JFrame{
         pnlMenu.btnHome.addActionListener(      e -> setPanel(new MainPanel())); 
         // pnlMenu.btnLogin.addActionListener(     e -> setPanel(new LoginPanel())); 
         pnlMenu.btnSoldado.addActionListener(      e -> setPanel(new SoldadoPanel()));  
-        pnlMenu.btnSoldado.addActionListener(      e -> setPanel(new ExobotPanel()));  
-        pnlMenu.btnExobot.addActionListener( e -> setPanel(new MainPanel())); 
+        pnlMenu.btnExobot.addActionListener(      e -> setPanel(new ExobotPanel()));  
+        // pnlMenu.btnExobot.addActionListener( e -> setPanel(new MainPanel())); 
         //agregar
         // pnlMenu.btnTest.addActionListener( e -> { IAStyle.showMsgError("ERROR MAMASAPO");}); 
     }

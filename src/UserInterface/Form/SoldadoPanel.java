@@ -3,7 +3,7 @@ package UserInterface.Form;
 import javax.swing.*;
 
 import BusinessLogic.SoldadoBL;
-import DataAccess.SoldadoDTO;
+import DataAccess.DTO.SoldadoDTO;
 import UserInterface.IAStyle;
 import UserInterface.CustomerControl.PatButton;
 import UserInterface.CustomerControl.PatLabel;

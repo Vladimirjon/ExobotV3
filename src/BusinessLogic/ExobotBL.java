@@ -3,7 +3,7 @@ package BusinessLogic;
 import java.util.List;
 
 import DataAccess.ExobotDAO;
-import DataAccess.ExobotDTO;
+import DataAccess.DTO.ExobotDTO;
 
 public class ExobotBL {
      private ExobotDTO exobot;

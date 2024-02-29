@@ -16,10 +16,10 @@ import UserInterface.CustomerControl.PatButton;
 public class MenuPanel extends JPanel {
     public  PatButton   
             btnHome     = new PatButton("Home"),
-            btnLogin    = new PatButton("Login"),
+            // btnLogin    = new PatButton("Login"),
             btnSoldado     = new PatButton("Soldado"),
-            btnExobot= new PatButton("Exobot"),
-            btnTest     = new PatButton("btnTest");
+            btnExobot= new PatButton("Exobot");
+            // btnTest     = new PatButton("btnTest");
 
     public MenuPanel(){
         customizeComponent();
@@ -40,12 +40,12 @@ public class MenuPanel extends JPanel {
 
         // add-botones
         add(btnHome);
-        add(btnLogin);
+        // add(btnLogin);
         add(btnSoldado);
         add(btnExobot);
-        add(btnTest);
+        // add(btnTest);
 
         // add-copyright
-        add(new JLabel("\u00A9 2024 PoliCrafters"));
+        add(new JLabel("\u00A9 EXOBOT_Programacion II"));
     }
 }

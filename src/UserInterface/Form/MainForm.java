@@ -15,11 +15,12 @@ public class MainForm extends JFrame{
     public MainForm(String tilteApp) {
         customizeComponent(tilteApp);
         pnlMenu.btnHome.addActionListener(      e -> setPanel(new MainPanel())); 
-        pnlMenu.btnLogin.addActionListener(     e -> setPanel(new LoginPanel())); 
+        // pnlMenu.btnLogin.addActionListener(     e -> setPanel(new LoginPanel())); 
         pnlMenu.btnSoldado.addActionListener(      e -> setPanel(new SoldadoPanel()));  
+        pnlMenu.btnSoldado.addActionListener(      e -> setPanel(new ExobotPanel()));  
         pnlMenu.btnExobot.addActionListener( e -> setPanel(new MainPanel())); 
         //agregar
-        pnlMenu.btnTest.addActionListener( e -> { IAStyle.showMsgError("mensaje de error");}); 
+        // pnlMenu.btnTest.addActionListener( e -> { IAStyle.showMsgError("ERROR MAMASAPO");}); 
     }
 
     private void setPanel(JPanel formularioPanel) {
@@ -35,7 +36,7 @@ public class MainForm extends JFrame{
 
     private void customizeComponent(String tilteApp) {
         setTitle(tilteApp);
-        setSize(930, 800);
+        setSize(800, 600);
         setResizable(false);
         setLocationRelativeTo(null); // Centrar en la pantalla
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -5,7 +5,7 @@ package UserInterface.Form;
 import javax.swing.*;
 
 import BusinessLogic.ExobotBL;
-import DataAccess.ExobotDTO;
+import DataAccess.DTO.ExobotDTO;
 import UserInterface.IAStyle;
 import UserInterface.CustomerControl.PatButton;
 import UserInterface.CustomerControl.PatLabel;

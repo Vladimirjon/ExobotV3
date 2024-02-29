@@ -3,7 +3,7 @@ package BusinessLogic;
 import java.util.List;
 
 import DataAccess.SoldadoDAO;
-import DataAccess.SoldadoDTO;
+import DataAccess.DTO.SoldadoDTO;
 
 public class SoldadoBL {
     private SoldadoDTO soldado;

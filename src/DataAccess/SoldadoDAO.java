@@ -13,10 +13,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import DataAccess.DTO.SexoDTO;
+import DataAccess.DTO.SoldadoDTO;
 import Framework.PatException;
-
-import DataAccess.SoldadoDTO;
 import Framework.PatException;  
   
 public class SoldadoDAO extends SQLiteDataHelper implements IDAO<SoldadoDTO> {  

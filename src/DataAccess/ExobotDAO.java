@@ -14,10 +14,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import DataAccess.DTO.SexoDTO;
-import Framework.PatException;
 
-import DataAccess.ExobotDTO;
+import DataAccess.DTO.ExobotDTO;
+import Framework.PatException;
 import Framework.PatException;  
   
 public class ExobotDAO extends SQLiteDataHelper implements IDAO<ExobotDTO> {  

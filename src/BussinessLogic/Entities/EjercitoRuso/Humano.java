@@ -13,7 +13,7 @@ public abstract class Humano implements IHumanoExtremidad{
     Boolean tjcabeza = cabeza;
     Boolean tjtronco = tronco;
     
-    private ArrayList<String> TJnombreHumano;
+    public ArrayList<String> TJnombreHumano;
 
     public Humano(String tjnombre) {
         

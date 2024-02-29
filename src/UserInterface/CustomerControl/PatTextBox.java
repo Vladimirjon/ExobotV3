@@ -8,9 +8,9 @@ import javax.swing.border.EmptyBorder;
 
 import UserInterface.IAStyle;
 
-public class MCTextBox extends JTextField {
+public class PatTextBox extends JTextField {
 
-    public MCTextBox() {
+    public PatTextBox() {
         customizeComponent();
     }
 

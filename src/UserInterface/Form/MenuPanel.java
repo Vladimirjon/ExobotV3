@@ -11,15 +11,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import UserInterface.IAStyle;
-import UserInterface.CustomerControl.MCButton;
+import UserInterface.CustomerControl.PatButton;
 
 public class MenuPanel extends JPanel {
-    public  MCButton   
-            btnHome     = new MCButton("Home"),
-            btnLogin    = new MCButton("Login"),
-            btnSexo     = new MCButton("Sexo"),
-            btnLocalidad= new MCButton("Localidad"),
-            btnTest     = new MCButton("btnTest");
+    public  PatButton   
+            btnHome     = new PatButton("Home"),
+            btnLogin    = new PatButton("Login"),
+            btnSexo     = new PatButton("Sexo"),
+            btnLocalidad= new PatButton("Localidad"),
+            btnTest     = new PatButton("btnTest");
 
     public MenuPanel(){
         customizeComponent();
@@ -44,5 +44,8 @@ public class MenuPanel extends JPanel {
         add(btnSexo);
         add(btnLocalidad);
         add(btnTest);
+
+        // add-copyright
+        add(new JLabel("\u00A9 2024 pat_mic"));
     }
 }

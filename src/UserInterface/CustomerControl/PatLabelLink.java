@@ -7,14 +7,14 @@ import UserInterface.IAStyle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class MCLabelLink extends MCLabel implements MouseListener {
+public class PatLabelLink extends PatLabel implements MouseListener {
 
-    MCLabelLink(String text){
+    PatLabelLink(String text){
         super(text);
         setPersonalizacion();
     }
 
-    MCLabelLink(String text, String iconPath){
+    PatLabelLink(String text, String iconPath){
         super(text);
         setPersonalizacion();
         setIcon(new ImageIcon(iconPath));

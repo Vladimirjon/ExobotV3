@@ -23,19 +23,19 @@ import javax.swing.border.LineBorder;
 
 public class LayoutEjemplos {
 
-    private MCLabel  
-            lblTitulo = new MCLabel("SEXO"          ), //, Color.BLACK, new Font("MesloLGL Nerd Font", Font.BOLD ,  20)),
-            lblIdSexo = new MCLabel("Codigo:      " ),
-            lblNombre = new MCLabel("Descripción: " ),
-            lblTotalReg=new MCLabel("  0 de 0  "    );
+    private PatLabel  
+            lblTitulo = new PatLabel("SEXO"          ), //, Color.BLACK, new Font("MesloLGL Nerd Font", Font.BOLD ,  20)),
+            lblIdSexo = new PatLabel("Codigo:      " ),
+            lblNombre = new PatLabel("Descripción: " ),
+            lblTotalReg=new PatLabel("  0 de 0  "    );
     private TextField  
             txtIdSexo = new TextField (" ",20),
             txtNombre = new TextField (" ",20);
-    private MCButton
-            btnIni = new MCButton(" |< "), 
-            btnAnt = new MCButton(" << "),            
-            btnSig = new MCButton(" >> "),
-            btnFin = new MCButton(" >| ");
+    private PatButton
+            btnIni = new PatButton(" |< "), 
+            btnAnt = new PatButton(" << "),            
+            btnSig = new PatButton(" >> "),
+            btnFin = new PatButton(" >| ");
     private JButton
             btnNuevo = new JButton("Nuevo"),            
             btnGuardar = new JButton("Guardar"),
@@ -346,14 +346,14 @@ public class LayoutEjemplos {
         //     btn.setLocation(2, i*30);
         //     add(btn);
         // }
-        MCLabel 
-        titulo      =new MCLabel("Compre algo ahora"),
-        nombre      =new MCLabel("Nombre:"),
-        direccion   =new MCLabel("Dirección:"),
-        pago        =new MCLabel("Método de pago:"),
-        telefono    =new MCLabel("Teléfono:"),
-        ciudad      =new MCLabel("Ciudad:"),
-        provincia   =new MCLabel("Provincia:"); //Color.DARK_GRAY,
+        PatLabel 
+        titulo      =new PatLabel("Compre algo ahora"),
+        nombre      =new PatLabel("Nombre:"),
+        direccion   =new PatLabel("Dirección:"),
+        pago        =new PatLabel("Método de pago:"),
+        telefono    =new PatLabel("Teléfono:"),
+        ciudad      =new PatLabel("Ciudad:"),
+        provincia   =new PatLabel("Provincia:"); //Color.DARK_GRAY,
                                 //     new Font("MesloLGL Nerd Font", Font.BOLD | Font.LAYOUT_RIGHT_TO_LEFT, 12));
 
         JTextField 
@@ -394,7 +394,7 @@ public class LayoutEjemplos {
         gbc.ipady = 150;        //tamaño del espacio a usar
         gbc.ipadx = 500;
         gbc.gridwidth=GridBagConstraints.REMAINDER;
-        pnlTabla.add(new MCLabel("Loading data..."));
+        pnlTabla.add(new PatLabel("Loading data..."));
         pnl.add(pnlTabla, gbc);
 
         //Limpiar grid

@@ -3,17 +3,17 @@ package UserInterface.Form;
 import java.awt.*;
 import javax.swing.*;
 
-import UserInterface.CustomerControl.MCLabel;
-import UserInterface.CustomerControl.MCLabelText;
-import UserInterface.CustomerControl.MCTextBox;
+import UserInterface.CustomerControl.PatLabel;
+import UserInterface.CustomerControl.PatLabelText;
+import UserInterface.CustomerControl.PatTextBox;
 
 public class LoginPanel extends JPanel {
-    private     MCLabel        lblUsername,
+    private PatLabel        lblUsername,
                             lblPassword;
-    private MCTextBox      txtUsername;
+    private PatTextBox      txtUsername;
     private JPasswordField  txpPassword;
     private JButton         btnLogin;
-    private MCLabelText    pltDirecccion;
+    private PatLabelText    pltDirecccion;
 
     public LoginPanel() {
         initializeComponents();
@@ -36,12 +36,12 @@ public class LoginPanel extends JPanel {
     }
 
     private void initializeComponents() {
-        lblUsername = new MCLabel("Username:");
-        lblPassword = new MCLabel("Password:");
-        txtUsername = new MCTextBox();
+        lblUsername = new PatLabel("Username:");
+        lblPassword = new PatLabel("Password:");
+        txtUsername = new PatTextBox();
         txpPassword = new JPasswordField();
         btnLogin    = new JButton("Login");
-        pltDirecccion = new MCLabelText("Dirección:");
+        pltDirecccion = new PatLabelText("Dirección:");
 
         //txtUsername.setBorder(txtUsername.createBorderLine());
         txtUsername.setBorderLine();

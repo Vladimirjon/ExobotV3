@@ -5,9 +5,9 @@ import javax.swing.*;
 import BusinessLogic.SexoBL;
 import DataAccess.DTO.SexoDTO;
 import UserInterface.IAStyle;
-import UserInterface.CustomerControl.MCButton;
+import UserInterface.CustomerControl.PatButton;
 import UserInterface.CustomerControl.PatLabel;
-import UserInterface.CustomerControl.MCTextBox;
+import UserInterface.CustomerControl.PatTextBox;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -173,24 +173,24 @@ public class SexoPanel  extends JPanel implements ActionListener {
             lblIdSexo   = new PatLabel(" Codigo:      "),
             lblNombre   = new PatLabel("*Descripción: "),
             lblTotalReg = new PatLabel(" 0 de 0 ");
-    private MCTextBox 
-            txtIdSexo   = new MCTextBox(),
-            txtNombre   = new MCTextBox();
-    private MCButton 
-            btnPageIni  = new MCButton(" |< "),
-            btnPageAnt  = new MCButton(" << "),
-            btnPageSig  = new MCButton(" >> "),
-            btnPageFin  = new MCButton(" >| "),
+    private PatTextBox 
+            txtIdSexo   = new PatTextBox(),
+            txtNombre   = new PatTextBox();
+    private PatButton 
+            btnPageIni  = new PatButton(" |< "),
+            btnPageAnt  = new PatButton(" << "),
+            btnPageSig  = new PatButton(" >> "),
+            btnPageFin  = new PatButton(" >| "),
 
-            btnRowIni   = new MCButton(" |< "),
-            btnRowAnt   = new MCButton(" << "),
-            btnRowSig   = new MCButton(" >> "),
-            btnRowFin   = new MCButton(" >| "),
+            btnRowIni   = new PatButton(" |< "),
+            btnRowAnt   = new PatButton(" << "),
+            btnRowSig   = new PatButton(" >> "),
+            btnRowFin   = new PatButton(" >| "),
 
-            btnNuevo    = new MCButton("Nuevo"),
-            btnGuardar  = new MCButton("Guardar"),
-            btnCancelar = new MCButton("Cancelar"),
-            btnEliminar = new MCButton("Eliminar");
+            btnNuevo    = new PatButton("Nuevo"),
+            btnGuardar  = new PatButton("Guardar"),
+            btnCancelar = new PatButton("Cancelar"),
+            btnEliminar = new PatButton("Eliminar");
     private JPanel 
             pnlTabla    = new JPanel(),
             pnlBtnRow   = new JPanel(new FlowLayout()),

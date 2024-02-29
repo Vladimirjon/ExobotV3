@@ -4,6 +4,10 @@ public class Soldado extends Humano implements IHumanoExtremidad{
     private Boolean habilidadBrazoIzquierdo;
     private Boolean habilidadBrazoDerecho;
 
+    public Soldado(){
+        
+    }
+
     public Soldado(String nombre){
         //
         super(nombre);

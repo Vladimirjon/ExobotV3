@@ -29,7 +29,7 @@ public class SoldadoDTO {
     public String toString(){
         return getClass().getName()
         + "\n IdSoldado:       "+ getIdSoldado()       
-        + "\n Aprender Ingles:"+ getNombreSoldado();
+        + "\n Nombre:"+ getNombreSoldado();
     }
 
 }

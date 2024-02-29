@@ -18,16 +18,16 @@ import javax.swing.event.ListSelectionListener;
 
 import BusinessLogic.SexoBL;
 import DataAccess.DTO.SexoDTO;
-import UserInterface.CustomerControl.MCButton;
+import UserInterface.CustomerControl.PatButton;
 import UserInterface.CustomerControl.PatLabel;
-import UserInterface.CustomerControl.MCTextBox;
+import UserInterface.CustomerControl.PatTextBox;
 
-public class PatPnlSexo extends JPanel implements ActionListener{
+public class ExobotPanel extends JPanel implements ActionListener{
     private Integer idSexo, idMaxSexo;
     private SexoBL  sexoBL  = null;
     private SexoDTO   sexo  = null;
 
-    public PatPnlSexo() throws Exception{
+    public ExobotPanel() throws Exception{
         setGridBagLayout();
         loadData();
         showData();
@@ -178,19 +178,19 @@ public class PatPnlSexo extends JPanel implements ActionListener{
             lblIdSexo  = new PatLabel("Codigo:      " ),
             lblNombre  = new PatLabel("Descripción: " ),
             lblTotalReg= new PatLabel("  0 de 0  "    );
-    private MCTextBox  
-            txtIdSexo  = new MCTextBox (),
-            txtNombre  = new MCTextBox ();
-    private MCButton  
-            btnIni     = new MCButton(" |< "), 
-            btnAnt     = new MCButton(" << "),            
-            btnSig     = new MCButton(" >> "),
-            btnFin     = new MCButton(" >| ");
-    private MCButton
-            btnNuevo   = new MCButton("Nuevo"),            
-            btnGuardar = new MCButton("Guardar"),
-            btnCancelar= new MCButton("Cancelar"),
-            btnEliminar= new MCButton("Eliminar");
+    private PatTextBox  
+            txtIdSexo  = new PatTextBox (),
+            txtNombre  = new PatTextBox ();
+    private PatButton  
+            btnIni     = new PatButton(" |< "), 
+            btnAnt     = new PatButton(" << "),            
+            btnSig     = new PatButton(" >> "),
+            btnFin     = new PatButton(" >| ");
+    private PatButton
+            btnNuevo   = new PatButton("Nuevo"),            
+            btnGuardar = new PatButton("Guardar"),
+            btnCancelar= new PatButton("Cancelar"),
+            btnEliminar= new PatButton("Eliminar");
     private JPanel 
             pnlTabla   = new JPanel(),
             pnlBtnCRUD = new JPanel(new FlowLayout()),

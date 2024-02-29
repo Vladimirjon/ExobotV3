@@ -7,11 +7,11 @@ import javax.swing.JLabel;
 
 import UserInterface.IAStyle;
 
-public class MCLabel extends JLabel{
-    public MCLabel(){
+public class PatLabel extends JLabel{
+    public PatLabel(){
         customizeComponent();
     }
-    public MCLabel(String text){
+    public PatLabel(String text){
         setText(text);
         customizeComponent();
     }

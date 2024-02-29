@@ -71,6 +71,8 @@ public class SoldadoDAO extends SQLiteDataHelper implements IDAO<SoldadoDTO>{
         }
     }
 
+    
+
     @Override
     public boolean update(SoldadoDTO entity) throws Exception {
         // DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

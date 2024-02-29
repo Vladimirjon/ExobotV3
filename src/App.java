@@ -12,13 +12,15 @@ import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneDarkIJTheme;
 
+import BussinessLogic.SoldadoBL;
+import BussinessLogic.Soldadoconndata;
 import UserInterface.Form.MainForm;
 import UserInterface.Form.SplashScreenForm;
 
 public class App {
     public static void main(String[] args) throws Exception {
-      
-
+        SoldadoBL bl = new SoldadoBL();
+        Soldadoconndata soldadoconndata = new Soldadoconndata();
         FlatLightLaf.setup();
         FlatLightLaf.supportsNativeWindowDecorations();
         try {
